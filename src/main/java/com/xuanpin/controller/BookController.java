@@ -36,6 +36,7 @@ public class BookController {
     }
 
 
+    @GetMapping
     public List<Book> getAll() {
         return bookService.getAll();
     }
