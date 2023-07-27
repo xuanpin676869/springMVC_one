@@ -8,7 +8,7 @@
   SpringConfig.java  
   SpringMvcConfig.java
 ## controller
-  ### 表现层数据web
+  ### 表现层数据
   BookController.java
 ## dao
   ### 数据层
