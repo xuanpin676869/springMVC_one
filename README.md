@@ -21,5 +21,5 @@
   BookServiceImpl.java
   BookService.java
 ## resources
-  ## 资源文件
+  ### 资源文件
   jdbc.properties
