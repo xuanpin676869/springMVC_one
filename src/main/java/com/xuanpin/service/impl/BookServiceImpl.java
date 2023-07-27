@@ -4,9 +4,11 @@ import com.xuanpin.dao.BookDao;
 import com.xuanpin.domain.Book;
 import com.xuanpin.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class BookServiceImpl implements BookService {
     @Autowired
     private BookDao bookDao;

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan({"com.xuanpin.service"})
-@PropertySource("jdbc.properties")
+@PropertySource("classpath:jdbc.properties")
 @Import({JdbcConfig.class, MyBatisConfig.class})
 public class SpringConfig {
 }

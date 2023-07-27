@@ -9,10 +9,10 @@ import javax.sql.DataSource;
 public class MyBatisConfig {
 
     @Bean
-    public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource){
+    public SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource){
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
-        factoryBean.setDataSource(dataSource);
         factoryBean.setTypeAliasesPackage("com.xuanpin.domain");
+        factoryBean.setDataSource(dataSource);
         return factoryBean;
     }
 
