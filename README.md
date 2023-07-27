@@ -12,7 +12,9 @@
    *** 
 ## controller
   ### 表现层数据
-  BookController.java
+  BookController.java  
+  ReturnFrontendInformation.java  
+  WebServiceStatusCode.java
    *** 
 ## dao
   ### 数据层
