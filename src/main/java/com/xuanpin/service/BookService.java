@@ -1,9 +1,11 @@
 package com.xuanpin.service;
 
 import com.xuanpin.domain.Book;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 public interface BookService {
     /**
      * 保存
