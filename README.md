@@ -11,16 +11,21 @@
 ## controller
   ### 表现层数据
   BookController.java
+   *** 
 ## dao
   ### 数据层
   BookDao.java
+   *** 
 ## domain
   ### 模型
   Book.java
+   *** 
 ## service
   ### 业务层
   BookServiceImpl.java  
   BookService.java
+   *** 
 ## resources
   ### 资源文件
   jdbc.properties
+   *** 
