@@ -235,30 +235,86 @@
             methods: {
                 //列表
                 getAll() {
+                    axios.get("/SpringMVCOpject_war/books").then((res)=>{
+                       this.dataList = res.data.data;
+                    });
                 },
 
                 //弹出添加窗口
                 handleCreate() {
+                    this.dialogFormVisible = true;
+                    this.resetForm();
                 },
 
                 //重置表单
                 resetForm() {
+                    this.formData = {};
                 },
 
                 //添加
                 handleAdd () {
+                    axios.post("/SpringMVCOpject_war/books",this.formData).then((res)=>{
+                       if(res.data.code == 20011){
+                           this.dialogFormVisible = false;
+                           this.$message.success("添加成功");
+                       }else if(res.data.code == 20010){
+                           this.$message.error("添加失败");
+                       }else{
+                           this.$message.error(res.data.msg);
+                       }
+                    }).finally(()=>{
+                        this.getAll();
+                    });
                 },
 
                 //弹出编辑窗口
                 handleUpdate(row) {
+                    axios.get("/SpringMVCOpject_war/books/"+row.id).then((res)=>{
+                        if(res.data.code == 20041){
+                            this.formData = res.data.data;
+                            this.dialogFormVisible4Edit = true;
+                        }else{
+                            this.$message.error(res.data.msg);
+                        }
+                    });
                 },
 
                 //编辑
                 handleEdit() {
+                    axios.put("/SpringMVCOpject_war/books",this.formData).then((res)=>{
+                        if(res.data.code == 20031){
+                            this.dialogFormVisible4Edit = false;
+                            this.$message.success("添加成功");
+                        }else if(res.data.code == 20030){
+                            this.$message.error("添加失败");
+                        }else{
+                            this.$message.error(res.data.msg);
+                        }
+                    }).finally(()=>{
+                        this.getAll();
+                    });
                 },
 
                 // 删除
                 handleDelete(row) {
+                    this.$confirm("此操作永久删除当前数据，是否继续？","提示",{
+                        type:'info'
+                    }).then(()=>{
+                        axios.delete("/SpringMVCOpject_war/books/"+row.id).then((res)=>{
+                            if(res.data.code == 20021){
+                                this.dialogFormVisible4Edit = false;
+                                this.$message.success("删除成功");
+                            }else if(res.data.code == 20020){
+                                this.$message.error("删除失败");
+                            }else{
+                                this.$message.error(res.data.msg);
+                            }
+                        }).finally(()=>{
+                            this.getAll();
+                        });
+                    }).catch(()=>{
+                        this.$message.info("取消删除操作");
+                    });
                 }
             }
         })
